@@ -2,7 +2,7 @@
 import { useCallback, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { festivalRepository, isMock } from "@/lib/repository";
+import { festivalRepository } from "@/lib/repository";
 import { regions, type Source } from "@/lib/types";
 import { useResource } from "@/lib/use-resource";
 import { Loading, ErrorState, Notice } from "./ui";
@@ -54,17 +54,12 @@ export function FestivalDetailView({ id }: { id: string }) {
       </>
     );
   const f = result.data!.data;
-  const illustration = !f.thumbnailUrl && !(isMock && f.id === "fst_demo_01");
+  const illustration = !f.thumbnailUrl;
   return (
     <>
       <div className={`detail-image ${illustration ? "illustration" : ""}`}>
         <Image
-          src={
-            f.thumbnailUrl ||
-            (isMock && f.id === "fst_demo_01"
-              ? "/assets/garden.png"
-              : "/assets/village-hero.svg")
-          }
+          src={f.thumbnailUrl || "/assets/village-hero.svg"}
           alt={
             illustration ? "작은 마을 기본 일러스트" : `${f.name} 분위기 이미지`
           }
@@ -74,11 +69,6 @@ export function FestivalDetailView({ id }: { id: string }) {
           priority
         />
       </div>
-      {isMock && f.id === "fst_demo_01" && (
-        <p className="source-info">
-          피그마 제공 AI 분위기 이미지 · 실제 행사 사진 아님
-        </p>
-      )}
       <p className="eyebrow mt-4">
         {regions[f.region]} ·{" "}
         {f.tags
@@ -100,13 +90,13 @@ export function FestivalDetailView({ id }: { id: string }) {
         {f.startDate.replaceAll("-", ".")} — {f.endDate.replaceAll("-", ".")}
       </p>
       <p className="muted mt-4">
-        {f.venue.label} /{" "}
-        {f.admission.amountKrw === null
+        {f.venue?.label ?? "장소 미확인"} /{" "}
+        {f.admission?.amountKrw == null
           ? "입장료 미확인"
           : f.admission.amountKrw === 0
             ? "무료"
             : `${f.admission.amountKrw.toLocaleString("ko-KR")}원`}
-        {f.admission.basis && ` (${f.admission.basis})`}
+        {f.admission?.basis && ` (${f.admission.basis})`}
       </p>
       <div className="chips my-5" role="tablist" aria-label="축제 정보">
         {["소개", "프로그램", "교통"].map((t) => (

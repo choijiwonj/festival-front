@@ -37,7 +37,7 @@ export const apiRepository: FestivalRepository = {
       signal,
     ),
   programs: (id, signal) =>
-    apiGet<ListResponse<Program>>(
+    apiGet<ApiResponse<Program[]>>(
       `/festivals/${encodeURIComponent(id)}/programs`,
       signal,
     ),

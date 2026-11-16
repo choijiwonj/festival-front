@@ -1,8 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useCallback } from "react";
-import { festivalRepository, isMock } from "@/lib/repository";
-import { DemoTrip } from "./demo-trip";
+import { festivalRepository } from "@/lib/repository";
 import { useResource } from "@/lib/use-resource";
 import { Loading, ErrorState, Notice } from "./ui";
 export function TripEntry({ festivalId }: { festivalId?: string }) {
@@ -35,8 +34,6 @@ function SelectedFestival({ id }: { id: string }) {
       </>
     );
   const festival = result.data!.data;
-  if (isMock && festival.status !== "CANCELLED")
-    return <DemoTrip festival={festival} />;
   return (
     <>
       <p className="eyebrow mb-3">선택한 축제</p>

@@ -1,4 +1,4 @@
-import { regions, type Filters, type FestivalSummary } from "./types";
+import { regions, type Filters } from "./types";
 export function validateFilters(f: Filters): string | null {
   if ((f.q?.trim().length ?? 0) > 100)
     return "검색어는 100자 이내로 입력해 주세요.";
@@ -35,32 +35,4 @@ export function validateFilters(f: Filters): string | null {
   )
     return "조회 개수는 1~50개여야 합니다.";
   return null;
-}
-export function filterFestivals<T extends FestivalSummary>(
-  items: T[],
-  f: Filters,
-  today = new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Seoul" }).format(
-    new Date(),
-  ),
-): T[] {
-  const q = f.q?.trim().toLocaleLowerCase("ko") ?? "";
-  return items
-    .filter(
-      (x) =>
-        (!q ||
-          `${x.name} ${regions[x.region]}`
-            .toLocaleLowerCase("ko")
-            .includes(q)) &&
-        (!f.region || x.region === f.region) &&
-        (!f.interests?.length || f.interests.some((i) => x.tags.includes(i))) &&
-        (!f.from || x.endDate >= f.from) &&
-        (!f.to || x.startDate <= f.to) &&
-        (f.from || f.to || x.endDate >= today),
-    )
-    .sort(
-      (a, b) =>
-        (f.sort === "NAME_ASC"
-          ? a.name.localeCompare(b.name, "ko")
-          : a.startDate.localeCompare(b.startDate)) || a.id.localeCompare(b.id),
-    );
 }

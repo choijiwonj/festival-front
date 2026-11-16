@@ -1,6 +1,4 @@
 import { apiRepository } from "./api/festivals";
-import { createMockRepository } from "./mock/repository";
-export const isMock = process.env.NEXT_PUBLIC_DATA_MODE !== "api";
-export const festivalRepository = isMock
-  ? createMockRepository(process.env.NEXT_PUBLIC_MOCK_SCENARIO)
-  : apiRepository;
+
+// 화면 데이터는 항상 백엔드에서 조회합니다. 로컬 데이터 대체 경로는 없습니다.
+export const festivalRepository = apiRepository;

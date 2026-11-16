@@ -1,19 +1,14 @@
 import { notFound } from "next/navigation";
-import {
-  DemoPlanList,
-  DemoBoard,
-  DemoProfile,
-  DemoSettings,
-} from "@/components/demo-views";
+import { redirect } from "next/navigation";
+import { PrivateLibrary } from "@/components/private-library";
 export default async function Page({
   params,
 }: {
   params: Promise<{ section: string }>;
 }) {
   const { section } = await params;
-  if (section === "plans") return <DemoPlanList />;
-  if (section === "reviews") return <DemoBoard mine />;
-  if (section === "profile") return <DemoProfile />;
-  if (section === "settings") return <DemoSettings />;
+  if (section === "profile") redirect("/my");
+  if (section === "plans" || section === "reviews")
+    return <PrivateLibrary kind={section} />;
   notFound();
 }

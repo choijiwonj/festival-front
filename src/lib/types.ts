@@ -46,9 +46,9 @@ export type Source = {
 export type FestivalDetail = FestivalSummary &
   Source & {
     description: string;
-    venue: { label: string; lat: number | null; lng: number | null };
+    venue: { label: string; lat: number | null; lng: number | null } | null;
     openingHours: string | null;
-    admission: { amountKrw: number | null; basis: string | null };
+    admission: { amountKrw: number | null; basis: string | null } | null;
     booths: ({ id: string; name: string } & Source)[];
     lineup: ({ id: string; name: string } & Source)[];
     shuttle: ({ description: string; url: string | null } & Source) | null;
@@ -98,5 +98,5 @@ export interface FestivalRepository {
     id: string,
     signal?: AbortSignal,
   ): Promise<ApiResponse<FestivalDetail>>;
-  programs(id: string, signal?: AbortSignal): Promise<ListResponse<Program>>;
+  programs(id: string, signal?: AbortSignal): Promise<ApiResponse<Program[]>>;
 }

@@ -1,4 +1,9 @@
-import { DemoMy } from "@/components/demo-views";
-export default function Page() {
-  return <DemoMy />;
+import { MyDashboard } from "@/components/my-dashboard";
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: Promise<{ login?: string }>;
+}) {
+  const params = await searchParams;
+  return <MyDashboard loginFailed={params.login === "failed"} />;
 }
