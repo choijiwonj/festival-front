@@ -1,0 +1,1 @@
+globalThis.__RSC_MANIFEST=(globalThis.__RSC_MANIFEST||{});globalThis.__RSC_MANIFEST["/auth/start/route"]={"moduleLoading":{"prefix":"/_next/"},"ssrModuleMapping":{},"edgeSSRModuleMapping":{},"clientModules":{},"entryCSSFiles":{"C:\\Users\\User\\OneDrive\\Desktop\\test\\src\\app\\auth\\start\\route":[]},"rscModuleMapping":{},"edgeRscModuleMapping":{}};

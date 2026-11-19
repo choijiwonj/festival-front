@@ -1,13 +1,14 @@
 export const rootTabs = ["/", "/map", "/board", "/my"] as const;
 
 export function getHeader(path: string) {
-  const active = path.startsWith("/my")
-    ? "/my"
-    : path.startsWith("/map")
-      ? "/map"
-      : path.startsWith("/board")
-        ? "/board"
-        : "/";
+  const active =
+    path.startsWith("/my") || path.startsWith("/jobs/")
+      ? "/my"
+      : path.startsWith("/map")
+        ? "/map"
+        : path.startsWith("/board")
+          ? "/board"
+          : "/";
   const titles: Record<string, string> = {
     "/": "축제잇길",
     "/map": "지도",
@@ -25,22 +26,28 @@ export function getHeader(path: string) {
   };
   const title =
     titles[path] ??
-    (path.startsWith("/my/plans/")
-      ? "여행 계획"
-      : path.startsWith("/festivals/")
-        ? "축제 상세"
-        : "축제잇길");
+    (path.startsWith("/board/") ? "여행 이야기" : path.startsWith("/jobs/")
+      ? "여행 생성"
+      : path.startsWith("/my/plans/")
+        ? "여행 계획"
+        : path.startsWith("/festivals/")
+          ? "축제 상세"
+          : "축제잇길");
   const backHref = rootTabs.some((tab) => tab === path)
     ? null
-    : path.startsWith("/my/settings/")
-      ? "/my/settings"
-      : path.startsWith("/my/plans/")
-        ? "/my/plans"
-        : path.startsWith("/my/") || path === "/login"
-          ? "/my"
-          : path.startsWith("/festivals/")
-            ? "/festivals"
-            : "/";
+    : path.startsWith("/board/")
+      ? "/board"
+    : path.startsWith("/jobs/")
+      ? "/my"
+      : path.startsWith("/my/settings/")
+        ? "/my/settings"
+        : path.startsWith("/my/plans/")
+          ? "/my/plans"
+          : path.startsWith("/my/") || path === "/login"
+            ? "/my"
+            : path.startsWith("/festivals/")
+              ? "/festivals"
+              : "/";
   return { title, active, backHref, showSettings: path === "/my" };
 }
 

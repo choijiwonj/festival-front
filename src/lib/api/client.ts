@@ -26,13 +26,22 @@ export async function apiRequest<T>(
     json?: unknown;
     csrfToken?: string | null;
     signal?: AbortSignal;
+    idempotencyKey?: string;
   } = {},
 ): Promise<T> {
   const base = process.env.NEXT_PUBLIC_API_BASE_URL || "/api/v1";
   const method = options.method ?? "GET";
+  // Login establishes the session, so it cannot already have a CSRF token.
+  const passwordLogin =
+    path === "/auth/login" && method.toUpperCase() === "POST";
   const headers: Record<string, string> = { Accept: "application/json" };
   if (options.json !== undefined) headers["Content-Type"] = "application/json";
-  if (!["GET", "HEAD", "OPTIONS"].includes(method.toUpperCase())) {
+  if (options.idempotencyKey)
+    headers["Idempotency-Key"] = options.idempotencyKey;
+  if (
+    !passwordLogin &&
+    !["GET", "HEAD", "OPTIONS"].includes(method.toUpperCase())
+  ) {
     if (!options.csrfToken)
       throw new ApiError(
         401,
@@ -62,7 +71,11 @@ export async function apiRequest<T>(
     );
   }
   if (!response.ok) {
-    if (response.status === 401 && typeof window !== "undefined")
+    if (
+      response.status === 401 &&
+      !passwordLogin &&
+      typeof window !== "undefined"
+    )
       window.dispatchEvent(new Event(AUTH_EXPIRED_EVENT));
     const payload = await response.json().catch(() => null);
     throw new ApiError(

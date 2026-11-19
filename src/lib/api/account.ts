@@ -1,6 +1,7 @@
 import type { ApiResponse, ListResponse, Interest } from "../types";
 import { apiGet, apiRequest } from "./client";
 import { safeReturnTo } from "../navigation";
+import type { TripPlan } from "../trips";
 
 export type User = { id: string; nickname: string; avatarUrl: string | null };
 export type Session = { user: User | null; csrfToken: string | null };
@@ -72,6 +73,11 @@ export function providerLoginUrl(
   return `${base.replace(/\/$/, "")}/auth/login/${allowed}?returnTo=${encodeURIComponent(safeReturnTo(returnTo))}`;
 }
 export const accountApi = {
+  login: (username: string, password: string) =>
+    apiRequest<ApiResponse<Session>>("/auth/login", {
+      method: "POST",
+      json: { username: username.trim().toLowerCase(), password },
+    }),
   session: (signal?: AbortSignal) =>
     apiGet<ApiResponse<Session>>("/auth/session", signal),
   profile: (signal?: AbortSignal) => apiGet<ApiResponse<User>>("/me", signal),
@@ -89,7 +95,7 @@ export const accountApi = {
       signal,
     ),
   plan: (id: string, signal?: AbortSignal) =>
-    apiGet<ApiResponse<PlanDetail>>(
+    apiGet<ApiResponse<TripPlan>>(
       `/trip-plans/${encodeURIComponent(id)}`,
       signal,
     ),

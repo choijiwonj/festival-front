@@ -14,6 +14,7 @@ import { useAuth } from "./auth-provider";
 import { Loading, ErrorState } from "./ui";
 import { accountApi, nicknameError } from "@/lib/api/account";
 import { loginPageUrl } from "@/lib/navigation";
+import { ActiveRequests } from "./active-requests";
 
 export function MyDashboard({
   loginFailed = false,
@@ -200,6 +201,7 @@ export function MyDashboard({
           )}
         </div>
       </section>
+      {user && !loading && !error && <ActiveRequests />}
       <Link href="/festivals" className="button mt-6">
         새로운 축제 찾아보기
       </Link>

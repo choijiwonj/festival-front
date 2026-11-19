@@ -1,0 +1,182 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "onMatchHeaders": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [
+      {
+        "source": "/api/v1/:path*",
+        "destination": "http://127.0.0.1:8001/api/v1/:path*",
+        "regex": "^/api/v1(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+      }
+    ],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/board/[id]",
+      "regex": "^/board/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/board/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/festivals/[id]",
+      "regex": "^/festivals/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/festivals/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/jobs/[id]",
+      "regex": "^/jobs/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/jobs/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/my/plans/[id]",
+      "regex": "^/my/plans/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/my/plans/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/my/[section]",
+      "regex": "^/my/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPsection": "nxtPsection"
+      },
+      "namedRegex": "^/my/(?<nxtPsection>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/auth/start",
+      "regex": "^/auth/start(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/auth/start(?:/)?$"
+    },
+    {
+      "page": "/board",
+      "regex": "^/board(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/board(?:/)?$"
+    },
+    {
+      "page": "/festivals",
+      "regex": "^/festivals(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/festivals(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/map",
+      "regex": "^/map(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/map(?:/)?$"
+    },
+    {
+      "page": "/me",
+      "regex": "^/me(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/me(?:/)?$"
+    },
+    {
+      "page": "/my",
+      "regex": "^/my(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/my(?:/)?$"
+    },
+    {
+      "page": "/my/settings",
+      "regex": "^/my/settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/my/settings(?:/)?$"
+    },
+    {
+      "page": "/my/settings/account",
+      "regex": "^/my/settings/account(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/my/settings/account(?:/)?$"
+    },
+    {
+      "page": "/my/settings/service",
+      "regex": "^/my/settings/service(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/my/settings/service(?:/)?$"
+    },
+    {
+      "page": "/my/settings/travel",
+      "regex": "^/my/settings/travel(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/my/settings/travel(?:/)?$"
+    },
+    {
+      "page": "/trip",
+      "regex": "^/trip(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/trip(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/_global-error/page": "app/_global-error/page.js",
+  "/auth/start/route": "app/auth/start/route.js",
+  "/board/[id]/page": "app/board/[id]/page.js",
+  "/board/page": "app/board/page.js",
+  "/jobs/[id]/page": "app/jobs/[id]/page.js",
+  "/map/page": "app/map/page.js",
+  "/me/page": "app/me/page.js",
+  "/my/[section]/page": "app/my/[section]/page.js",
+  "/my/page": "app/my/page.js",
+  "/my/plans/[id]/page": "app/my/plans/[id]/page.js",
+  "/my/settings/account/page": "app/my/settings/account/page.js",
+  "/my/settings/page": "app/my/settings/page.js",
+  "/my/settings/service/page": "app/my/settings/service/page.js",
+  "/my/settings/travel/page": "app/my/settings/travel/page.js",
+  "/page": "app/page.js",
+  "/trip/page": "app/trip/page.js",
+  "/festivals/[id]/page": "app/festivals/[id]/page.js",
+  "/festivals/page": "app/festivals/page.js",
+  "/login/page": "app/login/page.js"
+}

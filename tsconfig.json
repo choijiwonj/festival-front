@@ -33,7 +33,17 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    ".next-verify/types/**/*.ts",
+    ".next-verify/dev/types/**/*.ts",
+    ".next-map-board-check/types/**/*.ts",
+    ".next-map-board-check/dev/types/**/*.ts",
+    ".next-simulation-check/types/**/*.ts",
+    ".next-simulation-check/dev/types/**/*.ts",
+    ".next-festival-details-check/types/**/*.ts",
+    ".next-festival-details-check/dev/types/**/*.ts",
+    ".next-export-check/types/**/*.ts",
+    ".next-export-check/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

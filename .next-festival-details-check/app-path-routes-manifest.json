@@ -1,0 +1,22 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/_global-error/page": "/_global-error",
+  "/auth/start/route": "/auth/start",
+  "/board/[id]/page": "/board/[id]",
+  "/board/page": "/board",
+  "/jobs/[id]/page": "/jobs/[id]",
+  "/map/page": "/map",
+  "/me/page": "/me",
+  "/my/[section]/page": "/my/[section]",
+  "/my/page": "/my",
+  "/my/plans/[id]/page": "/my/plans/[id]",
+  "/my/settings/account/page": "/my/settings/account",
+  "/my/settings/page": "/my/settings",
+  "/my/settings/service/page": "/my/settings/service",
+  "/my/settings/travel/page": "/my/settings/travel",
+  "/page": "/",
+  "/trip/page": "/trip",
+  "/festivals/[id]/page": "/festivals/[id]",
+  "/festivals/page": "/festivals",
+  "/login/page": "/login"
+}

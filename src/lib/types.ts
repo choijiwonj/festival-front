@@ -46,9 +46,13 @@ export type Source = {
 export type FestivalDetail = FestivalSummary &
   Source & {
     description: string;
+    highlights?: { title: string; description: string; sourceUrl: string }[];
+    programNotice?: string;
+    sources?: { title: string; url: string }[];
+    contact?: { phone: string; label: string };
     venue: { label: string; lat: number | null; lng: number | null } | null;
     openingHours: string | null;
-    admission: { amountKrw: number | null; basis: string | null } | null;
+    admission: { amountKrw: number | null; basis: string | null; description?: string; sourceUrl?: string; lastVerifiedAt?: string } | null;
     booths: ({ id: string; name: string } & Source)[];
     lineup: ({ id: string; name: string } & Source)[];
     shuttle: ({ description: string; url: string | null } & Source) | null;

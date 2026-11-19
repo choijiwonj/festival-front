@@ -1,0 +1,31 @@
+1:"LoadingBoundaryProvider"
+2:I[7121,[],"$1"]
+3:"$Sreact.fragment"
+4:I[7121,[],""]
+5:"static/chunks/500-fc3b64d9ff4a32a7.js"
+6:"static/chunks/app/error-83efb1b19352d847.js"
+7:I[7267,["500","$5","39","$6"],"default"]
+8:I[4581,[],""]
+9:"static/chunks/app/loading-8ae95f93a52b1724.js"
+a:I[8500,["500","$5","209","$9"],""]
+11:I[484,[],"OutletBoundary"]
+12:"$Sreact.suspense"
+15:"ViewportBoundary"
+16:I[484,[],"$15"]
+17:"MetadataBoundary"
+18:I[484,[],"$17"]
+c:X
+c:C
+d:X
+10:[["children",{"s":"__PAGE__","h":176,"d":{"r":["$","$3","c",{"children":[["$","html",null,{"id":"__next_error__","children":[["$","head",null,{"children":[["$","title",null,{"children":"500: This page couldn’t load"}],["$","style",null,{"dangerouslySetInnerHTML":{"__html":":root {--next-error-bg: #fff;--next-error-text: #171717;--next-error-title: #171717;--next-error-message: #171717;--next-error-digest: #666666;--next-error-btn-text: #fff;--next-error-btn-bg: #171717;--next-error-btn-border: none;--next-error-btn-secondary-text: #171717;--next-error-btn-secondary-bg: transparent;--next-error-btn-secondary-border: 1px solid rgba(0,0,0,0.08);}@media (prefers-color-scheme: dark) {:root {--next-error-bg: #0a0a0a;--next-error-text: #ededed;--next-error-title: #ededed;--next-error-message: #ededed;--next-error-digest: #a0a0a0;--next-error-btn-text: #0a0a0a;--next-error-btn-bg: #ededed;--next-error-btn-border: none;--next-error-btn-secondary-text: #ededed;--next-error-btn-secondary-bg: transparent;--next-error-btn-secondary-border: 1px solid rgba(255,255,255,0.14);}}body { margin: 0; color: var(--next-error-text); background: var(--next-error-bg); }"}}]]}],["$","body",null,{"children":["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","display":"flex","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"style":{"marginTop":"-32px","maxWidth":"325px","padding":"32px 28px","textAlign":"left"},"children":[["$","svg",null,{"width":"32","height":"32","viewBox":"-0.2 -1.5 32 32","fill":"none","style":{"marginBottom":"24px"},"children":["$","path",null,{"d":"M16.9328 0C18.0839 0.000116771 19.1334 0.658832 19.634 1.69531L31.4299 26.1309C32.0708 27.4588 31.1036 28.9999 29.6291 29H2.00215C0.527541 29 -0.439628 27.4588 0.201371 26.1309L11.9973 1.69531C12.4979 0.658823 13.5474 7.75066e-05 14.6984 0H16.9328ZM3.59493 26H28.0363L16.9328 3H14.6984L3.59493 26ZM15.8156 19C16.9202 19.0001 17.8156 19.8955 17.8156 21C17.8156 22.1045 16.9202 22.9999 15.8156 23C14.7111 23 13.8156 22.1046 13.8156 21C13.8156 19.8954 14.7111 19 15.8156 19ZM17.3156 16.5H14.3156V8.5H17.3156V16.5Z","fill":"var(--next-error-title)"}]}],["$","h1",null,{"style":{"fontSize":"24px","fontWeight":500,"letterSpacing":"-0.02em","lineHeight":"32px","margin":"0 0 12px 0","color":"var(--next-error-title)"},"children":"This page couldn’t load"}],["$","p",null,{"style":{"fontSize":"14px","fontWeight":400,"lineHeight":"21px","margin":"0 0 20px 0","color":"var(--next-error-message)"},"children":"A server error occurred. Reload to try again."}],["$","form",null,{"style":{"margin":0},"children":["$","button",null,{"type":"submit","style":{"display":"inline-flex","alignItems":"center","justifyContent":"center","height":"32px","padding":"0 12px","fontSize":"14px","fontWeight":500,"lineHeight":"20px","borderRadius":"6px","cursor":"pointer","color":"var(--next-error-btn-text)","background":"var(--next-error-btn-bg)","border":"var(--next-error-btn-border)"},"children":"Reload"}]}]]}]}]}]]}],null,["$","$L11",null,{"children":["$","$12",null,{"name":"Next.MetadataOutlet","children":"$@13"}]}]]}],"p":"$@14","v":null,"s":"$d"}}]]
+e:[["children",{"s":"_global-error","h":112,"d":{"r":["$","$3","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L8",null,{}]}]]}],"p":"$@f","v":"$c","s":"$d"},"c":"$Q10"}]]
+0:{"t":{"t":{"s":"","h":84,"d":{"r":["$","$L2",null,{"loading":[["$","div","l",{"role":"status","aria-label":"축제 정보를 불러오는 중","className":"space-y-4","children":[["$","span",null,{"className":"sr-only","children":"불러오는 중…"}],[["$","div","1",{"className":"skeleton h-[74px] rounded-2xl"}],["$","div","2",{"className":"skeleton h-[74px] rounded-2xl"}],["$","div","3",{"className":"skeleton h-[74px] rounded-2xl"}]]]}],[],null],"children":["$","$3","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$7","errorStyles":[],"errorScripts":null,"template":["$","$L8",null,{}],"notFound":[[["$","h1",null,{"className":"page-title","children":"길을 찾지 못했어요"}],["$","p",null,{"children":"존재하지 않는 화면입니다."}],["$","$La",null,{"href":"/","className":"button mt-6","children":"홈으로 돌아가기"}]],[]]}]]}]}],"p":"$@b","v":"$c","s":"$d"},"c":"$Qe"},"h":{"r":["$","$3","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L18",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$12",null,{"name":"Next.Metadata","children":[]}]}],null]}],null]}],"p":"$@19","v":null,"s":"$d"}},"a":"$@1a","u":"$@1b","b":"gjpyr2ALcRcKG2e-_F8Al"}
+13:null
+d:300
+1b:true
+d:C
+1a:0
+f:"$undefined"
+b:"$undefined"
+19:"$undefined"
+14:"$undefined"

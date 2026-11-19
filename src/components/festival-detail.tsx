@@ -96,7 +96,7 @@ export function FestivalDetailView({ id }: { id: string }) {
           : f.admission.amountKrw === 0
             ? "무료"
             : `${f.admission.amountKrw.toLocaleString("ko-KR")}원`}
-        {f.admission?.basis && ` (${f.admission.basis})`}
+        {f.admission?.basis && ` (${({ PERSON: "1인", GROUP: "일행", ROOM: "객실" } as Record<string, string>)[f.admission.basis] ?? f.admission.basis})`}
       </p>
       <div className="chips my-5" role="tablist" aria-label="축제 정보">
         {["소개", "프로그램", "교통"].map((t) => (
@@ -133,21 +133,28 @@ export function FestivalDetailView({ id }: { id: string }) {
       >
         {tab === "소개" && (
           <>
-            <p>{f.description || "축제 소개가 아직 확인되지 않았어요."}</p>
-            <Notice>
-              <h2>프로그램 · 부스 · 셔틀</h2>
-              <p>
-                프로그램과 교통 탭에서 세부 안내를 확인해 주세요.
-                <br />
-                확인되지 않은 정보는 미확인으로 표시합니다.
-              </p>
-            </Notice>
-            <p className="muted">운영시간: {f.openingHours ?? "미확인"}</p>
+            <p className="whitespace-pre-line leading-relaxed">{f.description || "축제 소개가 아직 확인되지 않았어요."}</p>
+            <article className="info-card space-y-3">
+              <h2>운영 안내</h2>
+              <p className="whitespace-pre-line">{f.openingHours ?? "운영시간은 주최측 공고에서 확인해 주세요."}</p>
+              {f.contact && <p className="muted">{f.contact.label} · <a className="text-link" href={`tel:${f.contact.phone}`}>{f.contact.phone}</a></p>}
+            </article>
+            {f.admission?.description && <article className="info-card space-y-3">
+              <h2>입장권 · 요금 안내</h2><p>{f.admission.description}</p>
+              {f.admission.sourceUrl && <SourceInfo source={{ sourceUrl: f.admission.sourceUrl, lastVerifiedAt: f.admission.lastVerifiedAt ?? null }} />}
+            </article>}
+            {!!f.sources?.length && <div className="info-card space-y-2"><h2>공식 안내</h2>
+              {f.sources.filter((source) => source.url.startsWith("https://")).map((source) => <a key={source.url} className="text-link block" href={source.url} target="_blank" rel="noreferrer">{source.title} ↗</a>)}
+            </div>}
             <SourceInfo source={f} />
           </>
         )}
         {tab === "프로그램" && (
           <>
+            {f.highlights?.map((highlight) => <article className="info-card space-y-2" key={highlight.title}>
+              <h2>{highlight.title}</h2><p>{highlight.description}</p>
+              <SourceInfo source={{ sourceUrl: highlight.sourceUrl, lastVerifiedAt: f.lastVerifiedAt }} />
+            </article>)}
             {programs.loading ? (
               <Loading />
             ) : programs.error ? (
@@ -157,7 +164,7 @@ export function FestivalDetailView({ id }: { id: string }) {
               />
             ) : !programs.data?.data.length ? (
               <Notice>
-                등록된 프로그램이 없어요. 운영처의 최신 안내를 확인해 주세요.
+                {f.programNotice ?? "등록된 프로그램이 없어요. 운영처의 최신 안내를 확인해 주세요."}
               </Notice>
             ) : (
               programs.data.data.map((p) => (
@@ -188,7 +195,7 @@ export function FestivalDetailView({ id }: { id: string }) {
                 </article>
               ))
             )}
-            <Notice>
+            {(f.booths.length > 0 || !f.highlights?.length) && <Notice>
               <h2>부스 안내</h2>
               {f.booths.length ? (
                 f.booths.map((b) => (
@@ -200,8 +207,8 @@ export function FestivalDetailView({ id }: { id: string }) {
               ) : (
                 <p>부스 정보 미확인</p>
               )}
-            </Notice>
-            <Notice>
+            </Notice>}
+            {(f.lineup.length > 0 || !f.highlights?.length) && <Notice>
               <h2>공연 라인업</h2>
               {f.lineup.length ? (
                 f.lineup.map((l) => (
@@ -213,14 +220,14 @@ export function FestivalDetailView({ id }: { id: string }) {
               ) : (
                 <p>공연 라인업 미확인</p>
               )}
-            </Notice>
+            </Notice>}
           </>
         )}
         {tab === "교통" && (
           <>
             <Notice>
               <h2>오시는 길</h2>
-              <p>{f.directions?.description ?? "교통 정보 미확인"}</p>
+              <p className="whitespace-pre-line">{f.directions?.description ?? "교통 정보 미확인"}</p>
               {f.directions && <SourceInfo source={f.directions} />}
             </Notice>
             <Notice>

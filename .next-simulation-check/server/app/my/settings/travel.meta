@@ -1,0 +1,44 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/my/layout,_N_T_/my/settings/layout,_N_T_/my/settings/travel/layout,_N_T_/my/settings/travel/page,_N_T_/my/settings/travel"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/my/settings/travel/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 96,
+        "slots": {
+          "children": {
+            "hints": 96,
+            "slots": {
+              "children": {
+                "hints": 96,
+                "slots": {
+                  "children": {
+                    "hints": 160,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/1dbdbad407921dd76957fcee4ec44a4cb5f3c61a01b0737003b367ca4f17616f/$/my/settings/travel",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/my/settings/travel/page"
+    },
+    "isFallback": false
+  }
+}
